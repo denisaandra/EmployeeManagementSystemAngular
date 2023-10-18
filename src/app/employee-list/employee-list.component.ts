@@ -22,7 +22,6 @@ export class EmployeeListComponent {
   private getEmployees() {
     this.employeeService.getEmployeesList().subscribe( data => {
       this.employees = data;
-      console.log("data: " + this.employees);
       
     })
   }
