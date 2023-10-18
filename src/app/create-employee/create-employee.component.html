@@ -1,1 +1,26 @@
-<p>create-employee works!</p>
+<div class="col-md-6 offset-md-3">
+<h3>Create Employee</h3>
+<form (ngSubmit) = "onSubmit()">
+    <div class="form-group">
+        <label>First Name</label>
+        <!-- So this is the directive [(ngModel)] that we are using for two-way binding data, so as soon as we enter something into this text the corresponding property will be updated, and soon as it eill update this property in the component class then this input text box will be updated as well  -->
+        <input type="text" class="form-control" id = "firstName" [(ngModel)] = "employee.firstName" name="firstName"> 
+
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" id = "lastName" [(ngModel)] = "employee.lastName" name="lastName">
+
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" id = "email" [(ngModel)] = "employee.emailId" name="email">
+
+    </div>
+
+    <button class="btn btn-success" type="submit">Submit</button>
+
+</form>
+</div>
