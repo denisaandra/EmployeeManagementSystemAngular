@@ -31,7 +31,7 @@ export class CreateEmployeeComponent {
   }
 
   onSubmit() {
-    // Will make REST api call and send the form data to the server's REST api and internally REST api will process this request and save the form data into mysql database.
+    // Will make REST api call and send the form data to the server' and internally REST api will process this request and save the form data into mysql database.
     console.log(this.employee);
     this.saveEmployee();
   }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -12,7 +13,7 @@ export class EmployeeListComponent {
     
   employees: Employee[] | undefined;
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService, private router: Router) {}
 
   ngOnInit(): void {
     this.getEmployees();
@@ -24,5 +25,10 @@ export class EmployeeListComponent {
       this.employees = data;
       
     })
+  }
+
+  // Way to call update employee page using a Router from Angular
+  updateEmployee(id: number) {
+    this.router.navigate(['update-employee', id])
   }
 }

@@ -8,5 +8,5 @@ import { Employee } from './employee';
 })
 export class AppComponent {
 
-  title = 'employee-management-system-Angular-frontend';
+  title = 'Angular 16 Spring Boot 2 CRUD Full Stack App ';
 }
