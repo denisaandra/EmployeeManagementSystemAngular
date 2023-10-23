@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateEmployeeComponent {
   id!: number;
-  employee: Employee = new Employee();
+  employee: Employee = new Employee(); // this employee object gets automatically populated by Angular using ngModel directive
 
   constructor(private employeeService: EmployeeService, private route: ActivatedRoute, private router: Router) {
 
@@ -25,6 +25,14 @@ export class UpdateEmployeeComponent {
   
 
   onSubmit() {
- 
+   this.employeeService.updateEmployee(this.id, this.employee).subscribe( data => {
+    this.goToEmployeeList();
+   }
+   , error => console.log(error));
   }
+
+  goToEmployeeList() {
+   this.router.navigate(['/employees']);
+  }
+
 }
