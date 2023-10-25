@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Employee } from '../employee';
+import { ActivatedRoute } from '@angular/router';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -6,5 +9,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent {
+  id!: number
+  employee!: Employee
+
+  constructor(private route: ActivatedRoute, private employeeService: EmployeeService) {}
+
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params['id']; // retrieve the id from the url
+
+    this.employee = new Employee();
+    this.employeeService.getEmployeeById(this.id).subscribe( data => {
+      this.employee = data;
+    });
+
+
+  }
+
+
+
 
 }
